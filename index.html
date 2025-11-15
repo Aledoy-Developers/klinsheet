@@ -1,584 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GUARANTOR'S UNDERTAKING FORM</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      /* A4 Paper Dimensions and Styling */
-      @page {
-        size: A4;
-        margin: 0;
-      }
-
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-      }
-
-      .a4-page {
-        width: 210mm; /* A4 width */
-        min-height: 297mm; /* A4 height */
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        padding: 20mm 15mm; /* Margins for content */
-        box-sizing: border-box;
-        line-height: 1.6;
-        font-size: 11pt;
-      }
-
-      /* --- Header/Logo Section --- */
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 25px;
-      }
-
-      .logo {
-        width: 40%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        font-size: 9pt;
-        color: #333;
-      }
-      /* 
-      .logo-left::before {
-        content: "[FAMILY HOMES FUNDS Logo]";
-      }
-      .logo-right::before {
-        content: "[KLINSHEET Consulting Limited Logo]";
-      } */
-
-      /* --- Title and Callout --- */
-      .title-box {
-        text-align: center;
-        margin: 20px 0;
-      }
-
-      .guarantor-title {
-        margin-top: 5vh;
-        display: inline-block;
-        padding: 5px 15px;
-        border: 1px solid #3ea2ff;
-        background-color: #fefefe;
-        font-weight: bold;
-        color: #3ea2ff;
-        font-size: 13pt;
-        letter-spacing: 0.5px;
-      }
-
-      .note-box {
-        background-color: #f9e4e4;
-        color: #3ea2ff;
-        padding: 10px;
-        margin: 15px 0 30px 0;
-        font-size: 10pt;
-        border-left: 5px solid #3ea2ff;
-      }
-
-      /* --- Section Separator --- */
-      .form-separator {
-        margin: 40px 0;
-        border-top: 3px double #ccc;
-      }
-
-      /* --- Form Elements --- */
-      .section-heading {
-        font-weight: bold;
-        color: #333;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-        font-size: 12pt;
-        padding-bottom: 2px;
-      }
-
-      .field-row {
-        display: flex;
-        align-items: baseline;
-        margin-bottom: 8px;
-        white-space: nowrap;
-      }
-
-      .label {
-        width: 170px;
-        min-width: 170px;
-        font-size: 10pt;
-        padding-right: 5px;
-      }
-
-      .label-wide {
-        width: 220px;
-        min-width: 220px;
-      }
-
-      .input-line {
-        flex-grow: 1;
-        border: none;
-        border-bottom: 1px solid black;
-        padding: 0 2px;
-        font-size: 11pt;
-        height: 20px;
-      }
-
-      .input-line-short {
-        width: 80px;
-        flex-grow: 0;
-        margin-right: 15px;
-      }
-
-      .text-filler {
-        margin-right: 5px;
-      }
-
-      /* --- Declaration Section Styling --- */
-      .declaration-box {
-        margin-top: 30px;
-      }
-
-      .declaration-heading {
-        font-weight: bold;
-        text-decoration: underline;
-        margin-bottom: 15px;
-        font-size: 11pt;
-      }
-
-      .paragraph {
-        margin-bottom: 15px;
-        text-align: justify;
-        font-size: 10pt;
-      }
-
-      .declaration-line {
-        display: flex;
-        align-items: baseline;
-        font-size: 10pt;
-        margin-bottom: 5px;
-      }
-
-      .dec-line-filler {
-        border-bottom: 1px solid black;
-        flex-grow: 1;
-        padding: 0 5px;
-        margin: 0 5px;
-        height: 20px;
-      }
-
-      /* --- Table Section Styling (Page 3 Content) --- */
-      .requirement-box {
-        margin-top: 25px;
-      }
-
-      table.guarantor-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-      }
-
-      .guarantor-table th,
-      .guarantor-table td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        vertical-align: top;
-        font-size: 10pt;
-      }
-
-      .guarantor-table th {
-        background-color: #e0f0ff;
-        text-align: left;
-        font-weight: bold;
-        color: #333;
-        width: 35%;
-      }
-
-      .guarantor-table td ul {
-        padding-left: 20px;
-        margin: 0;
-      }
-
-      .guarantor-table td ul li {
-        margin-bottom: 5px;
-      }
-
-      .instruction-note {
-        font-style: italic;
-        margin: 15px 0;
-        font-size: 10pt;
-        color: #555;
-      }
-
-      /* --- Footer Section/Signature Spacing --- */
-      .signature-line {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-top: 50px; /* INCREASED SPACE HERE */
-        margin-bottom: 10px; /* Added margin below the line */
-      }
-
-      .sig-block {
-        width: 45%;
-        text-align: center;
-      }
-
-      .sig-line-top {
-        border-bottom: 1px solid black;
-        height: 40px; /* Increased height of the signing space */
-        margin-bottom: 5px;
-      }
-
-      .before-me {
-        margin-top: 50px; /* INCREASED SPACE HERE */
-        font-size: 11pt;
-        font-weight: bold;
-        text-decoration: underline;
-      }
+        body {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0d6efd;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .form-control, .form-select {
+            border: 2px solid #60a5fa;
+            padding: 12px;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+        }
+        .btn-continue {
+            background-color: #0d6efd;
+            color: white;
+            padding: 12px 60px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .btn-continue:hover {
+            background-color: #0b5ed7;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+        }
     </style>
-  </head>
-  <body>
-    <div class="a4-page">
-      <div class="header">
-        <div class="logo logo-left">
-          <img src="family_logo.png" style="width: 40%" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Employee Information</h1>
+            
+            <form id="employeeForm">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Lastname</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="employeeId" class="form-label">Employee ID</label>
+                        <input type="text" class="form-control" id="employeeId" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="client" class="form-label">Client</label>
+                        <select class="form-select" id="client" required>
+                            <option value="" selected disabled>Select client</option>
+                            <option value="client1">Client 1</option>
+                            <option value="client2">Client 2</option>
+                            <option value="client3">Client 3</option>
+                            <option value="client4">Client 4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-continue">Continue</button>
+                </div>
+            </form>
         </div>
-        <div class="logo logo-right">
-          <img src="logo.png" />
-        </div>
-      </div>
-
-      <div class="title-box">
-        <div class="guarantor-title">GUARANTOR'S UNDERTAKING FORM</div>
-      </div>
-
-      <div class="note-box">
-        PLEASE, DO NOT GUARANTEE SOMEONE NOT WELL KNOWN TO YOU FOR A MINIMUM OF
-        3 YEARS.
-      </div>
-
-      <div class="section-heading">EMPLOYEE'S DATA</div>
-
-      <div class="field-row">
-        <div class="label">Title:</div>
-        <div class="input-line input-line-short"></div>
-        <div class="text-filler" style="width: 10px"></div>
-        <div class="label">SURNAME, Other Names:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="section-heading">GUARANTOR'S DATA</div>
-
-      <div class="field-row">
-        <div class="label">Title:</div>
-        <div class="input-line input-line-short"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">SURNAME, Other Names:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Date of Birth:</div>
-        <div class="input-line input-line-short"></div>
-        <div class="text-filler">Age:</div>
-        <div class="input-line input-line-short" style="width: 50px"></div>
-        <div class="text-filler" style="flex-grow: 1"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Religion:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Residential Address:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Nearest Bus stop:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Closest landmark:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Mobile Telephone No(s):</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Personal Email Address:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Business/Organisation Name:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Business/Organisation Address:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Nearest Bus stop:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Closest landmark:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Office Telephone No(s):</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label label-wide">Occupation/Profession/Job Title:</div>
-        <div class="input-line"></div>
-        <div class="text-filler" style="font-size: 10pt">Since</div>
-        <div class="input-line input-line-short" style="width: 70px"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Job Grade/Level at Work:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="field-row">
-        <div class="label">Official Email Address:</div>
-        <div class="input-line"></div>
-      </div>
-
-      <div class="form-separator"></div>
-
-      <div class="declaration-box">
-        <div class="declaration-heading">DECLARATION</div>
-
-        <div class="paragraph">
-          I
-          <span class="dec-line-filler" style="width: 150px"></span>
-          confirm that
-        </div>
-
-        <div class="declaration-line">
-          <div class="text-filler">Mr./Mrs./Miss</div>
-          <div class="dec-line-filler" style="width: 150px"></div>
-          <div class="text-filler">of</div>
-          <div class="dec-line-filler" style="width: 150px"></div>
-        </div>
-
-        <div class="declaration-line">
-          <div class="dec-line-filler" style="width: 300px"></div>
-          <div class="text-filler">has been known</div>
-        </div>
-
-        <div class="declaration-line">
-          <div class="text-filler">to me for</div>
-          <div class="dec-line-filler" style="width: 50px"></div>
-          <div class="text-filler">as</div>
-          <div class="dec-line-filler" style="width: 100px"></div>
-          <div class="dec-line-filler" style="width: 200px">
-            (State Relationship).
-          </div>
-        </div>
-
-        <div class="paragraph">
-          I declare that all information and ID tendered for this purpose are
-          valid and authentic, and any false information given may lead to
-          termination of the job offer.
-        </div>
-
-        <div class="paragraph">
-          I confirm that the applicant's house address provided above is valid
-          and correct.
-        </div>
-
-        <div class="paragraph">
-          I confirm that he/she is of good character, fit and proper to be
-          considered for employment, I on the strength of this, accept to be
-          his/her Guarantor and waive him/her or its indemnify Family Homes
-          Funds Limited and / or its subsidiaries or related companies for any
-          loss or liability suffered or incurred as a result of the Employee
-          should the need arise.
-        </div>
-
-        <div class="paragraph">
-          If I am unable to produce him/her for any loss or liability suffered
-          or incurred as a result of his/her action, inaction or fraud; and if
-          he is unable to in his/her own capacity remedy or refund within an
-          agreed time loss or liability suffered or incurred; I as the Guarantor
-          accepts to remedy or refund the loss or liability suffered
-        </div>
-
-        <div class="paragraph">
-          **Please Note:**
-          <br />
-          "Family Homes Funds Limited requires that you assume the
-          responsibility of regularly counselling the candidate to ensure that
-          he/she is of good conduct at all times."
-          <br />
-          I hereby declare and affirm that the statements are true and correct
-          in accordance with the Oaths Law of Nigeria.
-        </div>
-
-        <div class="signature-line">
-          <div class="sig-block">
-            <div class="sig-line-top"></div>
-            Guarantor's Signature/Date
-          </div>
-          <div class="sig-block"></div>
-        </div>
-
-        <div class="before-me">Before me:</div>
-
-        <div class="before-me">NOTARY PUBLIC/COMMISSIONER FOR OATHS</div>
-      </div>
-
-      <div class="form-separator"></div>
-
-      <div class="requirement-box">
-        <div class="paragraph">
-          <span style="font-weight: bold"
-            >This form must be completed in the guarantor's own
-            handwriting.</span
-          >
-          <br />
-          <span style="font-weight: bold"
-            >The Minimum Annual income of a guarantor MUST NOT be less than
-            N500,000.00 per annum.</span
-          >
-          <br />
-          <span style="font-weight: bold"
-            >The person to fill this form must be between 30 - 70 years old and
-            MUST be any of the following:</span
-          >
-        </div>
-
-        <table class="guarantor-table">
-          <thead>
-            <tr>
-              <th>Guarantor</th>
-              <th>Requirement</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                A Civil servant such as Teachers & Principals of Public
-                Secondary School (Government owned);
-              </td>
-              <td>
-                <ul>
-                  <li>Not less than Grade Level 10</li>
-                  <li>Official ID Card</li>
-                  <li>
-                    A Passport sized photograph with name and signature at the
-                    back
-                  </li>
-                  <li>
-                    A copy of Driver's license, or National Identity card, or
-                    International passport
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>A Banker</td>
-              <td>
-                <ul>
-                  <li>Not less than an Assistant Banking Officer</li>
-                  <li>
-                    A Passport sized photograph with name and signature at the
-                    back
-                  </li>
-                  <li>Copy of Bank's ID Card</li>
-                  <li>
-                    A copy of Driver's license, or National Identity card, or
-                    International passport
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                A practicing professional such as Lawyer, Doctor, Pilot,
-                Chartered Accountant, NSE registered Engineer
-              </td>
-              <td>
-                <ul>
-                  <li>Not less than 4 years working experience</li>
-                  <li>
-                    A Passport sized photograph with name and signature at the
-                    back
-                  </li>
-                  <li>Work ID Card</li>
-                  <li>
-                    A copy of Driver's license, or National Identity card, or
-                    International passport
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Lecturer II & above in a reputable Higher Institution</td>
-              <td>
-                <ul>
-                  <li>
-                    A Passport sized photograph with name and signature at the
-                    back
-                  </li>
-                  <li>
-                    A copy of Driver's license, or National Identity card, or
-                    International passport
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="instruction-note">
-          N.B. Kindly ensure that your guarantors provide detailed and accurate
-          information as wrong and unverifiable information will attract a
-          penalty charge to carry out verification on new details provided.
-        </div>
-
-        <div class="paragraph" style="font-weight: bold">
-          To be filled by Applicant
-        </div>
-
-        <div class="paragraph">
-          I have read the requirements of this form and I understand and accept
-          the terms and conditions therein.
-        </div>
-
-        <div class="signature-line" style="margin-top: 30px">
-          <div class="sig-block">
-            <div class="sig-line-top"></div>
-            Name & Signature
-          </div>
-          <div class="sig-block">
-            <div class="sig-line-top"></div>
-            Date
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('employeeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Store form data in localStorage
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                employeeId: document.getElementById('employeeId').value,
+                client: document.getElementById('client').value
+            };
+            
+            localStorage.setItem('employeeData', JSON.stringify(formData));
+            
+            // Redirect to guarantor 1 page
+            window.location.href = 'guarantor1.html';
+        });
+
+        // Load saved data if returning to this page
+        window.addEventListener('load', function() {
+            const savedData = localStorage.getItem('employeeData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('firstName').value = data.firstName || '';
+                document.getElementById('lastName').value = data.lastName || '';
+                document.getElementById('email').value = data.email || '';
+                document.getElementById('phone').value = data.phone || '';
+                document.getElementById('employeeId').value = data.employeeId || '';
+                document.getElementById('client').value = data.client || '';
+            }
+        });
+    </script>
+</body>
 </html>
